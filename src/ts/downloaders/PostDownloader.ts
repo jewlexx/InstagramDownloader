@@ -15,7 +15,7 @@ import {
   LoggingLevel,
 } from '../modles/extension';
 import { QuerySelectors } from '../QuerySelectors';
-import { extractSrcSet, getSliderIndex } from './download-functions';
+import { getSliderIndex } from './download-functions';
 import { Downloader } from './Downloader';
 
 function getSliderElementFromPosition(
@@ -93,7 +93,7 @@ export class PostDownloader extends Downloader {
   ): Promise<void> {
     let dlLink: string;
     if (img) {
-      dlLink = extractSrcSet(img);
+      dlLink = img.src;
     } else {
       const currentSrc = video?.currentSrc;
       if (!currentSrc) {
